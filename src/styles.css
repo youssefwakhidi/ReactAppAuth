@@ -28,7 +28,9 @@
   input.error {
     border-color: red;
   }
-  
+  input.focus {
+    border-color: #05AFF2;
+  }
   .input-feedback {
     color: rgb(235, 54, 54);
     margin-top: -15px;

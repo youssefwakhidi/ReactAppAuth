@@ -1,8 +1,13 @@
 import React,{useState} from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import ShowIcon from "@material-ui/icons/Visibility"
-import ShowOffIcon from "@material-ui/icons/VisibilityOff"
+//import ShowIcon from "@material-ui/icons/Visibility"
+//import ShowOffIcon from "@material-ui/icons/VisibilityOff"
+import ShowIcon from '../assets/eye.svg';
+import ShowOffIcon from '../assets/eye-slash.svg';
+
+import './ValidatedLoginForm.css';
+
 
 const ValidatedLoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -39,7 +44,7 @@ const ValidatedLoginForm = () => {
       return (
 
         <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Adresse Email</label>
+          <label className="labels" htmlFor="email">Adresse Email</label>
           <input
             name="email"
             type="text"
@@ -48,11 +53,12 @@ const ValidatedLoginForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             className={errors.email && touched.email && "error"}
+            className="focus"
           />
           {errors.email && touched.email && (
             <div className="input-feedback">{errors.email}</div>
           )}
-          <label htmlFor="password">Mot de passe</label>
+          <label className="labels" htmlFor="password">Mot de passe</label>
           <div className="input-group">
           <input
             name="password"
@@ -62,19 +68,19 @@ const ValidatedLoginForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             className={errors.password && touched.password && "error"}
-            className="col-10"
+            className="focus col-10"
           />
           <button 
-            className="input-group-text col-2 mobile-space" style={{marginBottom:"20px"}}
+            className="buttonPad col-2 mobile-space" style={{marginBottom:"20px",backgroundColor:"#ffffff"}}
             onClick={togglePasswordVisiblity}
           >
-                        {passwordShown ? <ShowIcon/> : <ShowOffIcon/>}
+                        {passwordShown ? <img src={ShowIcon}/> :<img src={ShowOffIcon}/>}
           </button>
           </div>
           {errors.password && touched.password && (
             <div className="input-feedback">{errors.password}</div>
           )}
-          <button className="primary" type="submit" disabled={isSubmitting}>
+          <button className="buttons" type="submit" disabled={isSubmitting}>
             Login
           </button>
     

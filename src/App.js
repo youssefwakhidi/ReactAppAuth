@@ -1,21 +1,18 @@
-import ValidatedLoginForm from "./ValidatedLoginForm";
+import ValidatedLoginForm from "./components/ValidatedLoginForm";
 import "./styles.css";
-
+import Header from "./components/Header";
 function App() {
   return (
-    <div className="App" style={{ backgroundImage: "url(/engie.jpg)", height: "100vh", width: "100vw",backgroundSize:"cover" }}>
+    <div className="App">
+      <Header/>
       <div className="container p-4 d-flex justify-content-center">
-        <div className="mt-5">
-        <div className="mt-5">
-        <div className="card mx-3 shadow-lg mt-5" style={{ maxWidth: "400px", justifyContent: "center" }}>
+        <div className="card mx-3 shadow-lg mt-3" style={{ maxWidth: "400px", justifyContent: "center" }}>
           <div className="card-body p-5">
-            <ValidatedLoginForm />
+            <ValidatedLoginForm/>
           </div>
         </div>
       </div>
       </div>
-      </div>
-    </div>
   );
 }
 

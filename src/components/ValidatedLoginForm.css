@@ -1,0 +1,12 @@
+.labels{
+    color: #05AFF2;
+  }
+.buttons {
+    color: #ffffff;
+    background-color: #05AFF2;
+}
+
+.buttonPad {
+    padding: 5px 5px !important;
+    background-color: white;
+}
