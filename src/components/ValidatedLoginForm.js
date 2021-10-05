@@ -1,11 +1,8 @@
 import React,{useState} from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-//import ShowIcon from "@material-ui/icons/Visibility"
-//import ShowOffIcon from "@material-ui/icons/VisibilityOff"
 import ShowIcon from '../assets/eye.svg';
 import ShowOffIcon from '../assets/eye-slash.svg';
-
 import './ValidatedLoginForm.css';
 
 
@@ -18,7 +15,7 @@ const ValidatedLoginForm = () => {
     <Formik
     initialValues={{email:"",password:""}}
     onSubmit={(values,{setSubmitting}) => {
-        console.log("Submission");
+        console.log("Loging");
     }}
     validationSchema={Yup.object().shape({
         email: Yup.string()
@@ -26,7 +23,7 @@ const ValidatedLoginForm = () => {
           .required("Entrez une adresse email."),
         password: Yup.string()
           .required("Entrez un mot de passe.")
-          .matches(/(?=.*[0-9])/, "Mot de passe non sécurisé.")
+          .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "Mot de passe non sécurisé.")
       })}
     >
 
@@ -43,11 +40,14 @@ const ValidatedLoginForm = () => {
       } = props;
       return (
 
-        <form onSubmit={handleSubmit}>
-          <label className="labels" htmlFor="email">Adresse Email</label>
+        <form data-testid="Form" onSubmit={handleSubmit}>
+          <label 
+          data-testid="LabelEmail"
+          className="labels" htmlFor="email">Adresse Email</label>
           <input
             name="email"
             type="text"
+            data-testid="InputEmail"
             placeholder="Entrez votre adresse email"
             value={values.email}
             onChange={handleChange}
@@ -56,12 +56,17 @@ const ValidatedLoginForm = () => {
             className="focus"
           />
           {errors.email && touched.email && (
-            <div className="input-feedback">{errors.email}</div>
+            <div 
+            data-testid="FeedBackEmail"
+            className="input-feedback">{errors.email}</div>
           )}
-          <label className="labels" htmlFor="password">Mot de passe</label>
+          <label 
+          data-testid="LabelPassword"
+          className="labels" htmlFor="password">Mot de passe</label>
           <div className="input-group">
           <input
             name="password"
+            data-testid="Inputpassword"
             type={passwordShown ? "text" : "password"}
             placeholder="Entrez votre mot de passe"
             value={values.password}
@@ -71,6 +76,7 @@ const ValidatedLoginForm = () => {
             className="focus col-10"
           />
           <button 
+            data-testid="ButtonEye"
             className="buttonPad col-2 mobile-space" style={{marginBottom:"20px",backgroundColor:"#ffffff"}}
             onClick={togglePasswordVisiblity}
           >
@@ -78,9 +84,13 @@ const ValidatedLoginForm = () => {
           </button>
           </div>
           {errors.password && touched.password && (
-            <div className="input-feedback">{errors.password}</div>
+            <div 
+            data-testid="FeedBackPassword"
+            className="input-feedback">{errors.password}</div>
           )}
-          <button className="buttons" type="submit" disabled={isSubmitting}>
+          <button 
+          data-testid="ButtonLogin"
+          className="col-12 buttons" type="submit" disabled={isSubmitting}>
             Login
           </button>
     

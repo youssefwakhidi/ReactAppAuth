@@ -8,7 +8,7 @@ function App() {
       <div className="container p-4 d-flex justify-content-center">
         <div className="card mx-3 shadow-lg mt-3" style={{ maxWidth: "400px", justifyContent: "center" }}>
           <div className="card-body p-5">
-            <ValidatedLoginForm/>
+            <ValidatedLoginForm />
           </div>
         </div>
       </div>
