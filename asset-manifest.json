@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ReactAppAuth/static/css/main.6a6b5f60.chunk.css",
+    "main.js": "/ReactAppAuth/static/js/main.02b2979d.chunk.js",
+    "main.js.map": "/ReactAppAuth/static/js/main.02b2979d.chunk.js.map",
+    "runtime-main.js": "/ReactAppAuth/static/js/runtime-main.5d03d218.js",
+    "runtime-main.js.map": "/ReactAppAuth/static/js/runtime-main.5d03d218.js.map",
+    "static/js/2.0bcc09ad.chunk.js": "/ReactAppAuth/static/js/2.0bcc09ad.chunk.js",
+    "static/js/2.0bcc09ad.chunk.js.map": "/ReactAppAuth/static/js/2.0bcc09ad.chunk.js.map",
+    "static/js/3.f8a12dc1.chunk.js": "/ReactAppAuth/static/js/3.f8a12dc1.chunk.js",
+    "static/js/3.f8a12dc1.chunk.js.map": "/ReactAppAuth/static/js/3.f8a12dc1.chunk.js.map",
+    "index.html": "/ReactAppAuth/index.html",
+    "static/css/main.6a6b5f60.chunk.css.map": "/ReactAppAuth/static/css/main.6a6b5f60.chunk.css.map",
+    "static/js/2.0bcc09ad.chunk.js.LICENSE.txt": "/ReactAppAuth/static/js/2.0bcc09ad.chunk.js.LICENSE.txt",
+    "static/media/engie.2bda23b6.svg": "/ReactAppAuth/static/media/engie.2bda23b6.svg",
+    "static/media/eye-slash.3e38b239.svg": "/ReactAppAuth/static/media/eye-slash.3e38b239.svg",
+    "static/media/eye.3d78e88c.svg": "/ReactAppAuth/static/media/eye.3d78e88c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d03d218.js",
+    "static/js/2.0bcc09ad.chunk.js",
+    "static/css/main.6a6b5f60.chunk.css",
+    "static/js/main.02b2979d.chunk.js"
+  ]
+}
