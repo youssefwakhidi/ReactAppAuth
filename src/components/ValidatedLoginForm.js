@@ -19,11 +19,11 @@ const ValidatedLoginForm = () => {
     }}
     validationSchema={Yup.object().shape({
         email: Yup.string()
-          .email("Email non valide")
+          .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,"Email non valide")
           .required("Entrez une adresse email."),
         password: Yup.string()
           .required("Entrez un mot de passe.")
-          .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "Mot de passe non sécurisé.")
+          .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "Mot de passe doit contenir : 8 caractères , une majuscule, une minuscule , un chiffre et un caractère spécial.")
       })}
     >
 

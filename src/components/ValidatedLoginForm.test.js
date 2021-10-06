@@ -74,7 +74,7 @@ describe('Form Components', () => {
             }),);
         });
         const FeedBackPassword=getByTestId("FeedBackPassword");
-        expect(FeedBackPassword.innerHTML).toBe("Mot de passe non sécurisé.");
+        expect(FeedBackPassword.innerHTML).toBe("Mot de passe doit contenir : 8 caractères , une majuscule, une minuscule , un chiffre et un caractère spécial.");
     });
     test ("Testing no Password entered",async ()=>{
         const {getByTestId}=render(<ValidatedLoginForm/>);
