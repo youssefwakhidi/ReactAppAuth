@@ -1,0 +1,23 @@
+.Footer {
+    margin-top: 20px;
+    background: rgb(255, 254, 254);
+    border-top: 5px solid #6ee4f3;
+  }
+  .FootLogo {
+    text-align: right;
+  }
+  .FootText {
+    text-align: left;
+  }
+  .Footer img {
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    padding-bottom:10px;
+  }
+  @media screen and (max-width: 600px) {
+    .FootText {padding: 1rem!important;}
+    }
+  @media screen and (max-width: 450px) {
+    .Footer img {padding-bottom:0px;}
+    }
