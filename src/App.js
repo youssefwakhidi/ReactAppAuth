@@ -2,20 +2,25 @@ import ValidatedLoginForm from "./components/ValidatedLoginForm";
 import "./styles.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
+import ChangePassword from "./components/ChangePassword";
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <Header/>
-      <div className="container d-flex justify-content-center">
-        <div className="card mx-3 shadow-lg mt-4 mb-4" style={{ maxWidth: "400px", justifyContent: "center" }}>
-          <div className="card-body p-4">
-            <ValidatedLoginForm />
-          </div>
-        </div>
-      </div>
+            <Switch>
+              <Route exact path="/">
+                <ValidatedLoginForm />
+              </Route>
+              <Route path="/ChangePassword">
+                <ChangePassword />
+              </Route>
+            </Switch>
       <Footer/>
-      </div>
+    </div>
+    </Router>
   );
 }
 

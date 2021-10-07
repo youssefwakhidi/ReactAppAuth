@@ -1,4 +1,5 @@
 .Footer {
+    position: relative;
     margin-top: 20px;
     background: rgb(255, 254, 254);
     border-top: 5px solid #6ee4f3;
@@ -16,6 +17,7 @@
     padding-bottom:10px;
   }
   @media screen and (max-width: 600px) {
+    .Footer {position: fixed !important;}
     .FootText {padding: 1rem!important;}
     }
   @media screen and (max-width: 450px) {

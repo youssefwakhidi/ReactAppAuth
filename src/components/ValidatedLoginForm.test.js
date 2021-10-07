@@ -1,6 +1,8 @@
 import { render, screen,fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import ValidatedLoginForm from './ValidatedLoginForm';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 describe('Form Components', () => {
     test("rendered Email Label",()=>{
         const {getByTestId}=render(<ValidatedLoginForm/>);

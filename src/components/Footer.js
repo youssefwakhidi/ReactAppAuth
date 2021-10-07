@@ -7,8 +7,7 @@ const Footer = () => (
         <img data-testid="logoImage" src={logo} alt="Engie" />
       </div>
       <div className="p-4 FootText col-7 d-flex justify-content-center center">
-        <label data-testid="FooterText">L'energie est notre avenir, 
-        <strong>économisons-la !</strong>
+        <label data-testid="FooterText">L'energie est notre avenir, <strong>économisons-la !</strong>
         </label>
       </div>   
     </div>
