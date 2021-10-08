@@ -1,41 +1,47 @@
-import { render, screen,fireEvent } from '@testing-library/react';
+import { render,fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import ValidatedLoginForm from './ValidatedLoginForm';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('Form Components', () => {
+
     test("rendered Email Label",()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         const InputEmail=getByTestId("LabelEmail");
         expect(InputEmail).toBeTruthy();
     });
     test("rendered Email Input",()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         const InputEmail=getByTestId("InputEmail");
         expect(InputEmail).toBeTruthy();
     });
     test("rendered Password Label",()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         const InputPass=getByTestId("LabelPassword");
         expect(InputPass).toBeTruthy();
     });
     test("rendered Password Input",()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         const InputPass=getByTestId("Inputpassword");
         expect(InputPass).toBeTruthy();
     });
     test("rendered Button Eye",()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         const ButtonEye=getByTestId("ButtonEye");
         expect(ButtonEye).toBeTruthy();
     });
     test("rendered Button Login",()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         const ButtonLogin=getByTestId("ButtonLogin");
         expect(ButtonLogin).toBeTruthy();
     });
+    test("rendered Link password redefintion",()=>{
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
+        const PasswordRedefintion=getByTestId("PasswordRedefintion");
+        expect(PasswordRedefintion).toBeTruthy();
+    });
     test ("Testing invalid email",async ()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         await act(async () => {
         const InputEmail=getByTestId("InputEmail");
         const ButtonLogin=getByTestId("ButtonLogin");
@@ -50,7 +56,7 @@ describe('Form Components', () => {
         expect(FeedBackEmail.innerHTML).toBe("Email non valide");
     });
     test ("Testing no email entered",async ()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         await act(async () => {
         const InputEmail=getByTestId("InputEmail");
         const ButtonLogin=getByTestId("ButtonLogin");
@@ -64,7 +70,7 @@ describe('Form Components', () => {
         expect(FeedBackEmail.innerHTML).toBe("Entrez une adresse email.");
     });
     test ("Testing invalid Password",async ()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         await act(async () => {
         const ButtonLogin=getByTestId("ButtonLogin");
         const Inputpassword=getByTestId("Inputpassword");
@@ -79,7 +85,7 @@ describe('Form Components', () => {
         expect(FeedBackPassword.innerHTML).toBe("Mot de passe doit contenir : 8 caractères, une majuscule ,une minuscule ,un chiffre et un caractère spécial.");
     });
     test ("Testing no Password entered",async ()=>{
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         await act(async () => {
         const ButtonLogin=getByTestId("ButtonLogin");
         const Inputpassword=getByTestId("Inputpassword");
@@ -96,7 +102,7 @@ describe('Form Components', () => {
 
     test ("Test Submitting Valid inputs ",async ()=>{
         console.log = jest.fn();
-        const {getByTestId}=render(<ValidatedLoginForm/>);
+        const {getByTestId}=render(<Router><ValidatedLoginForm/></Router>);
         await act(async () => {
         const ButtonLogin=getByTestId("ButtonLogin");
         const InputEmail=getByTestId("InputEmail");

@@ -5,11 +5,12 @@ import ShowIcon from '../assets/eye.svg';
 import ShowOffIcon from '../assets/eye-slash.svg';
 import './ChangePassword.css';
 import PasswordStrength from "./PasswordStrength";
+
 const isnumberRegex =/\d/;
 const nospace =/^\S*$/;
-
 const specialcharacterRegex =/[!@#\$%\^&\*]/;
 const MajMinRegex = /(?=.*[a-z])(?=.*[A-Z])/;
+
 const ChangePassword =()=>
 {
     const [password,setPassword]=useState("");
@@ -89,8 +90,7 @@ const ChangePassword =()=>
                                 {passwordShown ? <img src={ShowIcon}/> :<img src={ShowOffIcon}/>}
                   </button>
                   </div>
-
-                  {<PasswordStrength validity={passwordValidity}/>}
+                  <PasswordStrength validity={passwordValidity}/>
                   <button 
                   data-testid="ButtonLogin"
                   className="col-12 buttons2" type="submit" disabled={isSubmitting}>

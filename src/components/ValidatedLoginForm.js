@@ -96,8 +96,12 @@ const ValidatedLoginForm = () => {
                 className="col-12 buttons" type="submit" disabled={isSubmitting}>
                   Login
                 </button>
-                <div className="links">
-                  <Link  style={{ textDecoration: 'none' }} to="/ChangePassword">Redefinsser votre mot de passe</Link>
+                <div 
+                data-testid="PasswordRedefintion"
+                className="links">
+                  <Link  style={{ textDecoration: 'none' }} to="/ChangePassword">
+                    Redefinsser votre mot de passe
+                  </Link>
                 </div>
               </form>
             </div>
