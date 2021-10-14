@@ -24,7 +24,6 @@ const ValidatedLoginForm = () => {
           .required("Entrez une adresse email."),
         password: Yup.string()
           .required("Entrez un mot de passe.")
-          .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "Mot de passe doit contenir : 8 caractères, une majuscule ,une minuscule ,un chiffre et un caractère spécial.")
       })}
     >
 
@@ -40,7 +39,7 @@ const ValidatedLoginForm = () => {
         handleSubmit
       } = props;
       return (
-      <div className="container d-flex justify-content-center">
+      <div className="container d-flex justify-content-center mb-5">
         <div className="card mx-3 shadow-lg mt-4 mb-4" style={{ maxWidth: "400px", justifyContent: "center" }}>
           <div className="card-body p-4">
               <form data-testid="Form" onSubmit={handleSubmit}>
@@ -80,6 +79,7 @@ const ValidatedLoginForm = () => {
                 />
                 <button 
                   data-testid="ButtonEye"
+                  type="button"
                   className="buttonPad col-2 mobile-space" style={{marginBottom:"20px",backgroundColor:"#ffffff"}}
                   onClick={togglePasswordVisiblity}
                 >
@@ -91,17 +91,19 @@ const ValidatedLoginForm = () => {
                   data-testid="FeedBackPassword"
                   className="input-feedback">{errors.password}</div>
                 )}
+                <div className="row justify-content-around">
                 <button 
                 data-testid="ButtonLogin"
-                className="col-12 buttons" type="submit" disabled={isSubmitting}>
+                className="col-5 buttons" type="submit" disabled={isSubmitting}>
                   Login
                 </button>
                 <div 
-                data-testid="PasswordRedefintion"
-                className="links">
-                  <Link  style={{ textDecoration: 'none' }} to="/ChangePassword">
-                    Redefinsser votre mot de passe
+                data-testid="ButtonRegister"
+                className="col-5 links btn-secondary">
+                  <Link  style={{ textDecoration: 'none',color:"white" }} to="/Register">
+                  Register
                   </Link>
+                </div>
                 </div>
               </form>
             </div>
