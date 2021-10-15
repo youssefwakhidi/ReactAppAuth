@@ -276,8 +276,7 @@ class AddUser extends Component {
                           
                         <button 
                         data-testid="ButtonRegister"
-                        className="col-3 buttons2" type="submit"  style={{ marginTop:"15px"}} disabled={isSubmitting}
-                        >
+                        className="col-3 buttons2" type="submit"  style={{ marginTop:"15px"}}>
                           Valider
                         </button>
                         <div className="col-1"></div>

@@ -1,13 +1,16 @@
 import React,{useState} from "react";
-import { Formik } from "formik";
+import { Formik  } from "formik";
 import * as Yup from "yup";
 import ShowIcon from '../assets/eye.svg';
 import ShowOffIcon from '../assets/eye-slash.svg';
 import './ValidatedLoginForm.css';
-import { Link,BrowserRouter as Router,Route,Switch } from "react-router-dom";
+import { useHistory,Link,BrowserRouter as Router,Route,Switch } from "react-router-dom";
+import UserService from "../services/UserService";
+
 
 
 const ValidatedLoginForm = () => {
+  const history = useHistory();
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -16,7 +19,24 @@ const ValidatedLoginForm = () => {
     <Formik
     initialValues={{email:"",password:""}}
     onSubmit={(values,{setSubmitting}) => {
-        console.log("Loging");
+    UserService.getUsers().then(res =>
+        {
+          (res.data).map(user => 
+            {
+              if(user.email==values.email && user.password==values.password)
+              {
+                localStorage.setItem("isAuthenticated", "true");
+                localStorage.setItem("lastname",user.lastname);
+                localStorage.setItem("firstname",user.firstname);
+                history.push("/User");
+              }
+            }
+            );
+        });
+       
+      alert('Utilisateur non trouvable !! ' )
+
+
     }}
     validationSchema={Yup.object().shape({
         email: Yup.string()
@@ -94,7 +114,8 @@ const ValidatedLoginForm = () => {
                 <div className="row justify-content-around">
                 <button 
                 data-testid="ButtonLogin"
-                className="col-5 buttons" type="submit" disabled={isSubmitting}>
+                name="sub"
+                className="col-5 buttons" type="submit">
                   Login
                 </button>
                 <div 

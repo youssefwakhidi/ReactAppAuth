@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router,Route,Switch,  Redirect} from "react-router-dom";
 import ChangePassword from "./components/ChangePassword";
 import AddUser from "./components/AddUser";
+import HelloUser from "./components/HelloUser";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -12,17 +14,20 @@ function App() {
     <div className="App">
       <Header/>
             <Switch>
-              <Route exact path="/ReactAppAuth">
-                <Redirect to="/" />
-              </Route>
+              
               <Route exact path="/">
                 <ValidatedLoginForm />
               </Route>
-              <Route path="/ChangePassword">
+              <Route  path="/ChangePassword">
                 <ChangePassword />
               </Route>
-              <Route path="/Register" component={AddUser}>
+              <Route  path="/Register" component={AddUser}>
                 <AddUser />
+              </Route>
+              <ProtectedRoute  path="/User" component={HelloUser} />
+              
+              <Route exact path="*">
+                <Redirect to="/" />
               </Route>
             </Switch>
       <Footer/>
